@@ -11,6 +11,7 @@ prg/cabs/
 .ssh
 .Xauthority
 .config/bookmenu/bookmarks
+.config/calcurse/
 .config/coc/
 .config/dconf/user
 .config/extensions/
@@ -22,6 +23,8 @@ prg/cabs/
 .config/notmuch-config/
 .config/pulse/cookie
 .config/TabNine/
+.config/transmission-daemon/
+.local/share/calcurse/
 .local/share/lf/
 .local/share/mail/
 .local/share/newsboat/
