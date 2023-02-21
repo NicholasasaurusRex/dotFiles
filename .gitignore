@@ -20,6 +20,7 @@ prg/cabs/
 .config/ncmpcpp/error.log
 .config/nvim/plugged/
 .config/notmuch-config/
+.config/pulse/cookie
 .config/TabNine/
 .local/share/lf/
 .local/share/mail/
