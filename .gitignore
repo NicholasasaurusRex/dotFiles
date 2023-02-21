@@ -17,6 +17,7 @@ prg/cabs/
 .config/mbsync/
 .config/msmtp/
 .config/mutt/
+.config/ncmpcpp/error.log
 .config/nvim/plugged/
 .config/notmuch-config/
 .config/TabNine/
