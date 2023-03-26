@@ -16,6 +16,10 @@ done; unset command
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	gs="git status" \
+	ga="git add ." \
+	gc="git commit -m" \
+	lf="lfub" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
