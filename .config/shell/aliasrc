@@ -16,6 +16,7 @@ done; unset command
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	py"python" \
 	gs="git status" \
 	ga="git add ." \
 	gc="git commit -m" \
