@@ -45,11 +45,12 @@ Plug 'sheerun/vim-polyglot'                     " Syntax highlighting for 100 la
 Plug 'mattn/emmet-vim'                          " HTML support for vim
 Plug 'alvan/vim-closetag'                       " Close HTML Tags
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code completion
-Plug 'zxqfl/tabnine-vim'                        "Tabnine ML Autocomple
+"Plug 'zxqfl/tabnine-vim'                        "Tabnine ML Autocomple # OLD
+Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' } "Tabnine ML Autocomple
 Plug 'Yggdroot/indentLine'                      " Indentation Guides
 Plug 'ap/vim-css-color'                         " Color previewing in Vim
 Plug 'easymotion/vim-easymotion'                " Easymotion, easily move in lines
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } } " Markdown preview
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Markdown preview
 
 call plug#end()
 
@@ -70,6 +71,7 @@ set lbr
 map <leader>nb :bNext<CR>
 map <leader>fb :bfirst<CR>
 map <leader>lb :blast<CR>
+map <leader>bc :bd<CR>
 
 " Tabs in NeoVim
 map <leader>ot :tabnew<CR>
@@ -219,6 +221,9 @@ let g:syntastic_style_error_symbol='X'
 let g:syntastic_warning_symbol='x'
 let g:syntastic_style_warning_symbol='x'
 let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
+
+
+
 
 " COC Settings
   let g:coc_global_extensions = [
@@ -446,78 +451,78 @@ autocmd BufWritePost */dwmblocks/config.h !sudo make install && { killall -q dwm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "				      HTML					 '
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- 	autocmd FileType html inoremap ,/ <!-- <++> --><Esc>3b
- 	autocmd FileType html inoremap ,x <Enter><Space><Esc>a
- 	autocmd FileType html inoremap ,z <Enter><Space><Enter><Esc>kla<Space>
-	autocmd FileType html inoremap ,a <a<Space>target="<++>"<Space>href="<++>"><++></a><++><Esc>7b
-	autocmd FileType html inoremap ,ab <abbr<Space>title=""><++></abbr><Space><++><Esc>14hi
-	autocmd FileType html inoremap ,ar <article><Enter><Space><++><Enter></article><Enter><++><Esc>6ba
-	autocmd FileType html inoremap ,b <b></b><Esc>2ba
-	autocmd FileType html inoremap ,br <br><++><Esc>4ha
-	autocmd FileType html inoremap ,bu <button type="<++>" name="<++>"><++></button><Esc>6b
-	autocmd FileType html inoremap ,cl class=""<Esc>1i
-	autocmd FileType html inoremap ,di <div><Enter><Space><++><Enter></div><Enter><++><Esc>6bi
-	autocmd FileType html inoremap ,dl <dl><Enter><Enter></dl><Enter><++><Esc>2ka<Tab><Tab>
-	autocmd FileType html inoremap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
-	autocmd FileType html inoremap ,e <a<Space>target="_blank"<Space>href=""><++></a><Space><++><Esc>14hi
-	autocmd FileType html inoremap ,em <em></em><Space><++><Esc>FeT>i
-	autocmd FileType html inoremap ,fm <form name="<++>" class="<++>" action="<++>" method="<++>"><++><Enter><++><Enter></form><Enter><++><Esc>14b
-	autocmd FileType html inoremap ,gr <font color="green"></font><Esc>F>a
-	autocmd FileType html inoremap ,hr <hr><Enter><++><Esc>a
-	autocmd FileType html inoremap ,head <header><Enter><Space><++><Enter></header><Enter><++><Esc>6ba
-	autocmd FileType html inoremap ,i <i></i><Esc>2ba
-	autocmd FileType html inoremap ,id id=""<Esc>1i
-	autocmd FileType html inoremap ,im <img src="<++>" alt="<++>"><++><Esc>5b
-	autocmd FileType html inoremap ,in <input type="<++>" name="<++>" value="<++>" placeholder="<++>" required><++><Esc>11b
- 	autocmd FileType html inoremap ,lab <label for="<++>" form"<++>"><++></label><++><Esc>7b
-	autocmd FileType html inoremap ,li <Esc>o<li></li><Esc>F>a
-	autocmd FileType html inoremap ,lk <link rel="<++>" type="<++>" href="<++>"><++><Esc>7b
-	autocmd FileType html inoremap ,lkcs <link rel="stylesheet" type="text/css" href="<++>"><++><Esc>13b
-	autocmd FileType html inoremap ,ma <main><Enter><Space><++><Enter></main><Enter><++><Esc>6ba
-	autocmd FileType html inoremap ,nav <nav><Enter><Space><++><Enter></nav><Enter><++><Esc>6ba
-	autocmd FileType html inoremap ,ol <ol type=""><Enter><li></li><Enter></ol><Enter><++><Esc>2k3w5ha
-	autocmd FileType html inoremap ,op <Esc>o<option value="<++>"><++></option><Esc>F>3b
-	autocmd FileType html inoremap ,p <p></p><Enter><++><Esc>ki
-	autocmd FileType html inoremap ,rd <font color="red"></font><Esc>F>a
-	autocmd FileType html inoremap ,sc <script type="text/javascript"></script><Enter><++><Esc>4bla
-	autocmd FileType html inoremap ,se <script type="text/javascript"> src="" charset="uft-8"></script><Enter><++><Esc>10b1la
-	autocmd FileType html inoremap ,sec <section><Enter><Space><++><Enter></section><Enter><++><Esc>6ba
-	autocmd FileType html inoremap ,sel <select class="<++>" name="<++>"><++><Enter><++><Enter></select><Enter><++><Esc>10b
-	autocmd FileType html inoremap ,sp <span></span><++><Esc>3bi
-	autocmd FileType html inoremap ,st <style type="text/css"><Enter><Tab><Tab><++><Enter></style><Enter><++><Esc>3k3l
-	autocmd FileType html inoremap ,str <strong><++></strong><++><Esc>3ba
-	autocmd FileType html inoremap ,ta <textarea name="<++>" rows="<++>" cols="<++>" placeholder="<++>"><++></textarea><Enter><++><Esc>12b
-	autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
-	autocmd FileType html inoremap ,tbd <tbody><Enter><++><Enter></tbody><Enter><++><Esc>6b
-	autocmd FileType html inoremap ,td <td></td><++><Esc>Fdcit
-	autocmd FileType html inoremap ,tft <tfoot><Enter><++><Enter></tfoot><Enter><++><Esc>6b
-	autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
-	autocmd FileType html inoremap ,thd <thead><Enter><++><Enter></thead><Enter><++><Esc>6b
-	autocmd FileType html inoremap ,tr <tr><Enter><++><Enter></tr><Enter><++><Esc>6b
-	autocmd FileType html inoremap ,ul <ul><Enter><Space><li></li><Enter></ul><Enter><++><Esc>2k3la
-	autocmd FileType html inoremap ,yl <font color="yellow"></font><Esc>F>a
-	autocmd FileType html inoremap ,1 <h1></h1><Enter><++><Esc>ka
-	autocmd FileType html inoremap ,2 <h2></h2><Enter><++><Esc>ka
-	autocmd FileType html inoremap ,3 <h3></h3><Enter><++><Esc>ka
-	autocmd FileType html inoremap ,4 <h4></h4><Enter><++><Esc>ka
-	autocmd FileType html inoremap ,5 <h5></h5><Enter><++><Esc>ka
-	autocmd FileType html inoremap ,6 <h6></h6><Enter><++><Esc>ka
-	autocmd FileType html inoremap ,lo Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<++><Esc>79b
+ 	" autocmd FileType html inoremap ,/ <!-- <++> --><Esc>3b
+ 	" autocmd FileType html inoremap ,x <Enter><Space><Esc>a
+ 	" autocmd FileType html inoremap ,z <Enter><Space><Enter><Esc>kla<Space>
+	" autocmd FileType html inoremap ,a <a<Space>target="<++>"<Space>href="<++>"><++></a><++><Esc>7b
+	" autocmd FileType html inoremap ,ab <abbr<Space>title=""><++></abbr><Space><++><Esc>14hi
+	" autocmd FileType html inoremap ,ar <article><Enter><Space><++><Enter></article><Enter><++><Esc>6ba
+	" autocmd FileType html inoremap ,b <b></b><Esc>2ba
+	" autocmd FileType html inoremap ,br <br><++><Esc>4ha
+	" autocmd FileType html inoremap ,bu <button type="<++>" name="<++>"><++></button><Esc>6b
+	" autocmd FileType html inoremap ,cl class=""<Esc>1i
+	" autocmd FileType html inoremap ,di <div><Enter><Space><++><Enter></div><Enter><++><Esc>6bi
+	" autocmd FileType html inoremap ,dl <dl><Enter><Enter></dl><Enter><++><Esc>2ka<Tab><Tab>
+	" autocmd FileType html inoremap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
+	" autocmd FileType html inoremap ,e <a<Space>target="_blank"<Space>href=""><++></a><Space><++><Esc>14hi
+	" autocmd FileType html inoremap ,em <em></em><Space><++><Esc>FeT>i
+	" autocmd FileType html inoremap ,fm <form name="<++>" class="<++>" action="<++>" method="<++>"><++><Enter><++><Enter></form><Enter><++><Esc>14b
+	" autocmd FileType html inoremap ,gr <font color="green"></font><Esc>F>a
+	" autocmd FileType html inoremap ,hr <hr><Enter><++><Esc>a
+	" autocmd FileType html inoremap ,head <header><Enter><Space><++><Enter></header><Enter><++><Esc>6ba
+	" autocmd FileType html inoremap ,i <i></i><Esc>2ba
+	" autocmd FileType html inoremap ,id id=""<Esc>1i
+	" autocmd FileType html inoremap ,im <img src="<++>" alt="<++>"><++><Esc>5b
+	" autocmd FileType html inoremap ,in <input type="<++>" name="<++>" value="<++>" placeholder="<++>" required><++><Esc>11b
+ 	" autocmd FileType html inoremap ,lab <label for="<++>" form"<++>"><++></label><++><Esc>7b
+	" autocmd FileType html inoremap ,li <Esc>o<li></li><Esc>F>a
+	" autocmd FileType html inoremap ,lk <link rel="<++>" type="<++>" href="<++>"><++><Esc>7b
+	" autocmd FileType html inoremap ,lkcs <link rel="stylesheet" type="text/css" href="<++>"><++><Esc>13b
+	" autocmd FileType html inoremap ,ma <main><Enter><Space><++><Enter></main><Enter><++><Esc>6ba
+	" autocmd FileType html inoremap ,nav <nav><Enter><Space><++><Enter></nav><Enter><++><Esc>6ba
+	" autocmd FileType html inoremap ,ol <ol type=""><Enter><li></li><Enter></ol><Enter><++><Esc>2k3w5ha
+	" autocmd FileType html inoremap ,op <Esc>o<option value="<++>"><++></option><Esc>F>3b
+	" autocmd FileType html inoremap ,p <p></p><Enter><++><Esc>ki
+	" autocmd FileType html inoremap ,rd <font color="red"></font><Esc>F>a
+	" autocmd FileType html inoremap ,sc <script type="text/javascript"></script><Enter><++><Esc>4bla
+	" autocmd FileType html inoremap ,se <script type="text/javascript"> src="" charset="uft-8"></script><Enter><++><Esc>10b1la
+	" autocmd FileType html inoremap ,sec <section><Enter><Space><++><Enter></section><Enter><++><Esc>6ba
+	" autocmd FileType html inoremap ,sel <select class="<++>" name="<++>"><++><Enter><++><Enter></select><Enter><++><Esc>10b
+	" autocmd FileType html inoremap ,sp <span></span><++><Esc>3bi
+	" autocmd FileType html inoremap ,st <style type="text/css"><Enter><Tab><Tab><++><Enter></style><Enter><++><Esc>3k3l
+	" autocmd FileType html inoremap ,str <strong><++></strong><++><Esc>3ba
+	" autocmd FileType html inoremap ,ta <textarea name="<++>" rows="<++>" cols="<++>" placeholder="<++>"><++></textarea><Enter><++><Esc>12b
+	" autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
+	" autocmd FileType html inoremap ,tbd <tbody><Enter><++><Enter></tbody><Enter><++><Esc>6b
+	" autocmd FileType html inoremap ,td <td></td><++><Esc>Fdcit
+	" autocmd FileType html inoremap ,tft <tfoot><Enter><++><Enter></tfoot><Enter><++><Esc>6b
+	" autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
+	" autocmd FileType html inoremap ,thd <thead><Enter><++><Enter></thead><Enter><++><Esc>6b
+	" autocmd FileType html inoremap ,tr <tr><Enter><++><Enter></tr><Enter><++><Esc>6b
+	" autocmd FileType html inoremap ,ul <ul><Enter><Space><li></li><Enter></ul><Enter><++><Esc>2k3la
+	" autocmd FileType html inoremap ,yl <font color="yellow"></font><Esc>F>a
+	" autocmd FileType html inoremap ,1 <h1></h1><Enter><++><Esc>ka
+	" autocmd FileType html inoremap ,2 <h2></h2><Enter><++><Esc>ka
+	" autocmd FileType html inoremap ,3 <h3></h3><Enter><++><Esc>ka
+	" autocmd FileType html inoremap ,4 <h4></h4><Enter><++><Esc>ka
+	" autocmd FileType html inoremap ,5 <h5></h5><Enter><++><Esc>ka
+	" autocmd FileType html inoremap ,6 <h6></h6><Enter><++><Esc>ka
+	" autocmd FileType html inoremap ,lo Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<++><Esc>79b
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "				      CSS					 '
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-	autocmd FileType css inoremap ,c1 h1<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,c2 h2<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,c3 h3<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,c4 h4<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,c5 h5<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,c6 h6<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,cp p<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,dec  <++><Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
-	autocmd FileType css inoremap ,ccl .<++><Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6ba
-	autocmd FileType css inoremap ,cid #<++><Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6ba
+	" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+	" autocmd FileType css inoremap ,c1 h1<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,c2 h2<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,c3 h3<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,c4 h4<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,c5 h5<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,c6 h6<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,cp p<Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,dec  <++><Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6bi
+	" autocmd FileType css inoremap ,ccl .<++><Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6ba
+	" autocmd FileType css inoremap ,cid #<++><Tab>{<Enter><Backspace><++><Enter>}<Enter><Enter><++><Esc>6ba
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "				    MARKDOWN					 '
@@ -541,3 +546,10 @@ autocmd BufWritePost */dwmblocks/config.h !sudo make install && { killall -q dwm
 	" autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
 	" autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
 	" autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
+
+
+" Tabnine Activate
+
+lua <<EOF
+ Tabnine=Activate
+EOF
