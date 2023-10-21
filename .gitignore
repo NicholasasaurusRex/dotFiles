@@ -31,6 +31,7 @@ wrk/
 .config/dconf/user
 .config/extensions/
 .config/fontconfig/
+.config/ipinfo/
 .config/lf/
 .config/mbsync/
 .config/mpd/
